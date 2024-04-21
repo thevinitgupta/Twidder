@@ -35,7 +35,15 @@ const getAppwriteSDK = () => {
 const createFromUserPosts = async (userId : string) => {
     
         const userDocuments = await getDocuments(userId);
-        if(userDocuments.length===0) throw new Error("No Posts Scheduled!");
+        if(userDocuments.length===0) {
+            const type = 1 + Math.floor(Math.random()*1);
+            if(type===1) {
+                await createFromTechJoke();
+            }
+            else {
+                await createFromTechNews();
+            }
+        }
         const postToTweet = userDocuments[0];
         const response = await postTweet({post : postToTweet["post"]});
         // console.log(response);

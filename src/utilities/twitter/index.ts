@@ -42,6 +42,20 @@ const postTweet = async ({post} : {post : string}) => {
    const {readWrite} = getTwitterClient();
    try {
     const response = await readWrite.v2.tweet(post);
+    /*
+    const mediaId = await readWrite.v1.uploadMedia(imageData, { type: 'image/jpeg' });
+
+  // Post a tweet with the uploaded image
+  const tweetText = 'Hello, from Twidderly : My NextJS APP!!\nDon\'t forget to follow me : https://t.co/o9AEP4iQUX';
+  const tweetParams = {
+    status: tweetText,
+    media_ids: mediaId.toString()
+  };
+
+  const tweetResponse = await readWrite.v1.tweet(tweetParams);
+  console.log('Tweet posted successfully:', tweetResponse);
+
+    */
     return response.data;
 
    } catch (error) {

@@ -36,7 +36,7 @@ const createFromUserPosts = async (userId : string) => {
     
         const userDocuments = await getDocuments(userId);
         if(userDocuments.length===0) {
-            const type = 1 + Math.floor(Math.random()*1);
+            const type = 1 + Math.floor(Math.random()*2);
             if(type===1) {
                 await createFromTechJoke();
             }
